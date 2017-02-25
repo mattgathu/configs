@@ -1,13 +1,20 @@
-#
-# ~/.bashrc
-#
+# .bashrc
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
 alias axel='axel -n 20 -a'
-eval $(dircolors -b)
+alias grep='grep -i'
 
 PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[0;34m\]\w\[\e[m\] \[\e[0;32m\]\$\[\e[m\] \[\e[1;37m\]'
 
@@ -34,20 +41,13 @@ man() {
     man "$@"
 }
 export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
-export PATH="$HOME/.tmuxifier/bin:$PATH"
+export PROJECT_HOME=$HOME/Projects
 export EDITOR="vim"
+export LANG="en_US.UTF-8"
 
-# pacman alias
-alias pacupg='sudo pacman -Syu'     # Synchronize with repositories and then upgrade packages that are out of date on the local system.
-alias pacin='sudo pacman -S'        # Install specific package(s) from the repositories
-alias pacrem='sudo pacman -Rns'     # Remove the specified package(s), its configuration(s) and unneeded dependencies
-alias refreshmirrors='sudo reflector -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist'
 alias newpost='rake posts:create'   # format: newpost "the post title" categoryname 2013-12-07
+alias less='vimpager'
 
-# put rubygem in path
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
-# alias dj
-alias dj='cd ~/Projects/veritza/veritza/scrapers'
+export PAGER=vimpager
+source /usr/local/bin/virtualenvwrapper.sh
