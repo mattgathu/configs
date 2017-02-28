@@ -21,3 +21,4 @@ brew install awscli aws-elasticbeanstalk
 
 echo "Installing Others"
 brew cask install --caskroom=/Applications  pritunl
+brew cask install --caskroom=/Applications  adobe-reader
