@@ -144,6 +144,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf'
+Plug 'Yggdroot/indentLine'
+Plug 'elzr/vim-json'
 call plug#end()
 
 colorscheme solarized
